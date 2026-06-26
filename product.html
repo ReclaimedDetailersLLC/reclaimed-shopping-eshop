@@ -3,19 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Product details — Reclaimed Group auto detailing supply.">
-  <title>Product | Reclaimed Group</title>
+  <meta name="description" content="Product details — Reclaimed Co.">
+  <title>Product | Reclaimed Co.</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
   <header id="nav" role="banner"></header>
 
-  <!-- ═══ PRODUCT DETAIL ════════════════════════════════════════ -->
   <main class="product-detail" id="product-main">
     <div class="container">
 
-      <!-- Breadcrumb -->
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="index.html">Home</a>
         <span class="bc-sep" aria-hidden="true">›</span>
@@ -26,61 +24,68 @@
 
       <div class="product-detail-grid" style="margin-top:32px">
 
-        <!-- Left: Image -->
+        <!-- Images -->
         <div>
-          <div class="product-detail-img" id="detail-main-img" aria-label="Product image"></div>
-          <div class="detail-thumbs" id="detail-thumbs" aria-label="Product views"></div>
+          <div class="product-detail-main-img" id="detail-main-img"></div>
+          <div class="product-detail-thumbs" id="detail-thumbs"></div>
         </div>
 
-        <!-- Right: Info -->
-        <div class="product-detail-info">
-          <div class="product-detail-cat" id="detail-cat"></div>
-          <h1 class="product-detail-name" id="detail-name"></h1>
-          <p class="product-detail-sub" id="detail-sub"></p>
-          <div class="product-detail-price" id="detail-price"></div>
+        <!-- Info -->
+        <div class="product-detail-sticky">
+          <div class="product-detail-col"  id="detail-col"></div>
+          <h1 class="product-detail-name"  id="detail-name"></h1>
+          <div class="product-detail-variant" id="detail-variant"></div>
+          <div class="product-detail-price"   id="detail-price"></div>
 
-          <p style="font-size:.9rem;color:var(--text-2);line-height:1.75;margin-bottom:20px" id="detail-desc"></p>
+          <!-- Color options if multiple -->
+          <div id="detail-swatches" style="margin-bottom:18px"></div>
 
-          <div class="divider" style="margin:20px 0"></div>
+          <p style="font-size:.9rem;color:var(--text-2);line-height:1.8;margin-bottom:20px" id="detail-desc"></p>
 
-          <p style="font-size:.72rem;font-family:var(--font-h);letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px">What's Included / Features</p>
+          <div class="divider" style="margin:18px 0"></div>
+
+          <p style="font-family:var(--font-m);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px">Details</p>
           <ul class="feature-list" id="detail-features"></ul>
 
-          <div class="divider" style="margin:20px 0"></div>
+          <!-- Material / Fit info -->
+          <div id="detail-specs" style="margin:18px 0;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg)"></div>
 
-          <!-- Quantity + Add to Cart -->
+          <div class="divider" style="margin:18px 0"></div>
+
+          <!-- Quantity -->
           <div style="margin-bottom:16px">
-            <label for="detail-qty" style="font-family:var(--font-h);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:8px">Quantity</label>
-            <div class="qty-control">
+            <label for="detail-qty" style="font-family:var(--font-m);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:8px">Quantity</label>
+            <div class="qty-control" style="width:fit-content">
               <button class="qty-ctrl-btn" id="qty-down" aria-label="Decrease quantity">−</button>
               <input class="qty-ctrl-input" type="number" id="detail-qty" value="1" min="1" max="20" aria-label="Quantity">
-              <button class="qty-ctrl-btn" id="qty-up" aria-label="Increase quantity">+</button>
+              <button class="qty-ctrl-btn" id="qty-up"   aria-label="Increase quantity">+</button>
             </div>
           </div>
 
           <div class="detail-actions">
-            <button class="btn btn-primary" id="add-to-cart-btn" style="flex:1">
+            <button class="btn btn-dark" id="add-to-cart-btn" style="flex:1">
               + Add to Cart
             </button>
-            <a href="contact.html" class="btn btn-outline">Inquire About This</a>
+            <a href="contact.html" class="btn btn-outline">Ask a Question</a>
           </div>
 
-          <div style="margin-top:16px;padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);display:flex;gap:10px;align-items:flex-start">
-            <span style="color:var(--gold);font-size:1rem;flex-shrink:0">ℹ</span>
-            <p style="font-size:.78rem;color:var(--text-3);line-height:1.6">
-              We don't process payments online. After adding to cart and clicking
-              <em>Contact to Order</em>, we'll reach out within 24 hours to confirm your order and arrange payment.
+          <!-- No payment notice -->
+          <div style="margin-top:16px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);display:flex;gap:10px;align-items:flex-start">
+            <span style="color:var(--brown);font-size:.9rem;flex-shrink:0">ℹ</span>
+            <p style="font-size:.76rem;color:var(--text-3);line-height:1.6">
+              We're not processing payments online yet — for your protection. Add items to your cart, then click
+              <em>Inquire to Order</em> and we'll confirm everything and handle payment securely together.
             </p>
           </div>
-        </div>
 
+        </div>
       </div>
 
-      <!-- ─── Related Products ─── -->
+      <!-- Related -->
       <div class="divider"></div>
       <div class="section-header" style="margin-bottom:28px">
-        <div class="eyebrow">You Might Also Like</div>
-        <h2>Related Products</h2>
+        <div class="eyebrow">Continue Shopping</div>
+        <h2>You Might Also Like</h2>
       </div>
       <div class="product-grid" id="related-products"></div>
     </div>
@@ -101,46 +106,63 @@
         document.getElementById('product-main').innerHTML = `
           <div class="container" style="text-align:center;padding:80px 0">
             <h2>Product not found</h2>
-            <a href="shop.html" class="btn btn-primary" style="margin-top:24px">Back to Shop</a>
+            <a href="shop.html" class="btn btn-dark" style="margin-top:24px">Back to Shop</a>
           </div>
         `;
         return;
       }
 
-      // Meta
-      document.title = `${product.name} | Reclaimed Group`;
-      document.querySelector('meta[name="description"]').content = product.desc;
-
-      // Breadcrumb
-      document.getElementById('bc-name').textContent = product.name;
+      document.title = `${product.name} — ${product.variant} | Reclaimed Co.`;
+      document.querySelector('meta[name="description"]').content = product.desc.slice(0, 160);
+      document.getElementById('bc-name').textContent = `${product.name} — ${product.variant}`;
 
       // Main image
       document.getElementById('detail-main-img').innerHTML = `
-        <div style="width:100%;height:100%;background:${product.gradient};display:flex;align-items:center;justify-content:center;font-size:8rem" aria-hidden="true">
-          ${product.icon}
+        <div style="width:100%;height:100%;background:${product.bgColor};display:flex;align-items:center;justify-content:center;min-height:400px" aria-hidden="true">
+          <span style="font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;color:${product.textColor};letter-spacing:-.01em;text-align:center;padding:40px;line-height:1.1">RECLAIMED.</span>
         </div>
       `;
 
-      // Thumbnails (4 colour variations)
-      const thumbGradients = [
-        product.gradient,
-        product.gradient.replace('135deg', '45deg'),
-        product.gradient.replace('135deg', '225deg'),
-        product.gradient.replace('135deg', '315deg'),
-      ];
-      document.getElementById('detail-thumbs').innerHTML = thumbGradients.map((g, i) => `
+      // Thumbs (angle variations)
+      const thumbAngles = ['160deg', '45deg', '280deg', '90deg'];
+      const thumbBgs = thumbAngles.map(a => product.bgColor);
+      document.getElementById('detail-thumbs').innerHTML = thumbBgs.map((bg, i) => `
         <div class="detail-thumb ${i === 0 ? 'active' : ''}" aria-label="View ${i + 1}">
-          <div style="width:100%;height:100%;background:${g};display:flex;align-items:center;justify-content:center;font-size:1.8rem" aria-hidden="true">${product.icon}</div>
+          <div style="width:100%;height:100%;background:${bg};opacity:${1 - i * 0.15};display:flex;align-items:center;justify-content:center">
+            <span style="font-family:'Playfair Display',serif;font-size:.55rem;font-weight:700;color:${product.textColor};letter-spacing:.02em">RCL.</span>
+          </div>
         </div>
       `).join('');
 
       // Info
-      document.getElementById('detail-cat').textContent   = product.category;
-      document.getElementById('detail-name').textContent  = product.name;
-      document.getElementById('detail-sub').textContent   = product.subtitle;
-      document.getElementById('detail-price').textContent = '$' + product.price.toFixed(2);
-      document.getElementById('detail-desc').textContent  = product.desc;
+      document.getElementById('detail-col').textContent     = product.collection;
+      document.getElementById('detail-name').textContent    = product.name;
+      document.getElementById('detail-variant').textContent = product.variant;
+      document.getElementById('detail-price').textContent   = '$' + product.price.toFixed(2);
+      document.getElementById('detail-desc').textContent    = product.desc;
 
+      // Swatches (link to other variants)
+      if (product.swatches && product.swatches.length > 1) {
+        const sameBase = PRODUCTS.filter(p => p.name === product.name);
+        document.getElementById('detail-swatches').innerHTML = `
+          <p style="font-family:var(--font-m);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px">
+            Color: <span style="color:var(--text-1)">${product.variant}</span>
+          </p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            ${sameBase.map(p => `
+              <a href="product.html?id=${p.id}"
+                 title="${p.variant}"
+                 aria-label="${p.variant}"
+                 style="display:flex;align-items:center;gap:6px;padding:6px 12px;border:1.5px solid ${p.id === product.id ? 'var(--text-1)' : 'var(--border)'};border-radius:100px;font-family:var(--font-m);font-size:.65rem;font-weight:600;color:var(--text-2);transition:border-color var(--t)">
+                <span style="width:12px;height:12px;border-radius:50%;background:${p.bgColor};border:1px solid var(--border);flex-shrink:0"></span>
+                ${p.variant}
+              </a>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      // Features
       document.getElementById('detail-features').innerHTML = product.features.map(f => `
         <li>
           <span class="check-icon" aria-hidden="true">✓</span>
@@ -148,7 +170,18 @@
         </li>
       `).join('');
 
-      // Quantity controls
+      // Specs
+      const specs = [];
+      if (product.fit)       specs.push(`<strong>Fit:</strong> ${product.fit}`);
+      if (product.material)  specs.push(`<strong>Material:</strong> ${product.material}`);
+      if (product.careNote)  specs.push(`<strong>Care:</strong> ${product.careNote}`);
+      document.getElementById('detail-specs').innerHTML = `
+        <div style="display:flex;flex-direction:column;gap:6px">
+          ${specs.map(s => `<p style="font-size:.82rem;color:var(--text-2);margin:0">${s}</p>`).join('')}
+        </div>
+      `;
+
+      // Qty
       const qtyInput = document.getElementById('detail-qty');
       document.getElementById('qty-down').addEventListener('click', () => {
         qtyInput.value = Math.max(1, parseInt(qtyInput.value) - 1);
@@ -157,19 +190,23 @@
         qtyInput.value = Math.min(20, parseInt(qtyInput.value) + 1);
       });
 
-      // Add to cart
       document.getElementById('add-to-cart-btn').addEventListener('click', () => {
         const qty = Math.max(1, parseInt(qtyInput.value) || 1);
         cart.add(product, qty);
         _updateCartCount && _updateCartCount();
-        showToast(`${product.name} (×${qty}) added to cart ✓`);
+        showToast(`${product.name} — ${product.variant} (×${qty}) added ✓`);
       });
 
-      // Related
+      // Related: same collection or category
       const related = PRODUCTS
-        .filter(p => p.id !== product.id && (p.category === product.category || p.badge))
+        .filter(p => p.id !== product.id && (p.collection === product.collection || p.category === product.category))
         .slice(0, 4);
-      document.getElementById('related-products').innerHTML = related.map(p => productCard(p)).join('');
+      if (related.length === 0) {
+        const related2 = PRODUCTS.filter(p => p.id !== product.id).slice(0, 4);
+        document.getElementById('related-products').innerHTML = related2.map(p => productCard(p)).join('');
+      } else {
+        document.getElementById('related-products').innerHTML = related.map(p => productCard(p)).join('');
+      }
     });
   </script>
 </body>

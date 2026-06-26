@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shop all Reclaimed Group auto detailing products — ceramic coatings, interior kits, wash supplies, paint correction, and more.">
-  <title>Shop | Reclaimed Group</title>
+  <meta name="description" content="Shop Reclaimed Co. — Phase 1 launch. Premium heavyweight hoodies, tees, headwear, and jewelry rooted in faith.">
+  <title>Shop | Reclaimed Co.</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -14,9 +14,9 @@
   <!-- ═══ PAGE HEADER ═══════════════════════════════════════════ -->
   <div class="page-header">
     <div class="container">
-      <div class="eyebrow" style="justify-content:center">Our Lineup</div>
-      <h1>The <span class="text-gold">Shop</span></h1>
-      <p>Professional-grade detailing products available for order. Browse below and contact us to purchase.</p>
+      <div class="eyebrow">Phase 1 Launch</div>
+      <h1>The Shop</h1>
+      <p>A small, intentional collection. Every piece chosen with purpose.</p>
     </div>
   </div>
 
@@ -24,10 +24,9 @@
   <section class="section" style="padding-top:0">
     <div class="container">
 
-      <!-- Filter Bar -->
       <div class="filter-bar">
         <span class="filter-label">Filter:</span>
-        <div class="filter-tags" id="filter-tags" role="group" aria-label="Product categories"></div>
+        <div class="filter-tags" id="filter-tags" role="group" aria-label="Filter by category"></div>
         <select class="sort-select" id="sort-select" aria-label="Sort products">
           <option value="default">Default</option>
           <option value="price-asc">Price: Low to High</option>
@@ -36,22 +35,30 @@
         </select>
       </div>
 
-      <!-- Results count -->
-      <p style="font-size:.78rem;color:var(--text-3);margin-bottom:20px" id="results-count"></p>
+      <p style="font-family:var(--font-m);font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:24px" id="results-count"></p>
 
-      <!-- Grid -->
       <div class="product-grid" id="product-grid"></div>
 
-    </div>
-  </section>
+      <!-- Phase 2 & 3 Coming Soon -->
+      <div class="divider"></div>
+      <div style="text-align:center;margin-bottom:32px">
+        <div class="eyebrow">What's Coming</div>
+        <h2 style="margin-top:6px;margin-bottom:8px">Future Collections</h2>
+        <p style="color:var(--text-2);font-size:.95rem;max-width:440px;margin:0 auto">As we grow, so does the line. Here's what's already in the works.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="coming-grid">
+        <div class="coming-soon-card">
+          <div class="coming-soon-label">Phase 2 — Accessories</div>
+          <div class="coming-soon-title">Canvas Totes &bull; Duffle Bags &bull; Phone Cases &bull; Leather Keychains</div>
+          <p class="coming-soon-desc" style="margin-top:8px">Higher margin, everyday carry goods that build on the brand identity.</p>
+        </div>
+        <div class="coming-soon-card">
+          <div class="coming-soon-label">Phase 3 — Premium Collection</div>
+          <div class="coming-soon-title">Crewnecks &bull; Quarter-Zips &bull; Denim Jackets &bull; Watches &bull; Premium Leather</div>
+          <p class="coming-soon-desc" style="margin-top:8px">The elevated tier for those who've been with us since the beginning.</p>
+        </div>
+      </div>
 
-  <!-- ═══ CTA ════════════════════════════════════════════════════ -->
-  <section class="cta-banner">
-    <div class="container">
-      <div class="eyebrow">Not Sure?</div>
-      <h2>Let Us <span class="text-gold">Guide You</span></h2>
-      <p>Tell us about your vehicle and goals — we'll recommend the right products and put together a custom package for you.</p>
-      <a href="contact.html" class="btn btn-primary">Get Personalized Advice &rarr;</a>
     </div>
   </section>
 
@@ -62,54 +69,51 @@
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
   <script>
-    let _activeCategory = 'All';
-    let _sortMode = 'default';
+    let _cat  = 'All';
+    let _sort = 'default';
 
-    function buildFilterTags() {
+    function buildFilters() {
       const container = document.getElementById('filter-tags');
       if (!container) return;
-      const cats = ['All', ...new Set(PRODUCTS.map(p => p.category))];
-      container.innerHTML = cats.map(c => `
-        <button class="filter-tag ${c === _activeCategory ? 'active' : ''}"
+      container.innerHTML = CATEGORIES.map(c => `
+        <button class="filter-tag ${c === _cat ? 'active' : ''}"
                 onclick="setCategory('${c}')"
-                aria-pressed="${c === _activeCategory}">${c}</button>
+                aria-pressed="${c === _cat}">${c}</button>
       `).join('');
     }
 
     function setCategory(cat) {
-      _activeCategory = cat;
-      buildFilterTags();
+      _cat = cat;
+      buildFilters();
       renderGrid();
     }
 
     function renderGrid() {
-      let products = _activeCategory === 'All'
-        ? [...PRODUCTS]
-        : PRODUCTS.filter(p => p.category === _activeCategory);
+      let list = _cat === 'All' ? [...PRODUCTS] : PRODUCTS.filter(p => p.category === _cat);
+      if (_sort === 'price-asc')  list.sort((a,b) => a.price - b.price);
+      if (_sort === 'price-desc') list.sort((a,b) => b.price - a.price);
+      if (_sort === 'name')       list.sort((a,b) => a.name.localeCompare(b.name));
 
-      if (_sortMode === 'price-asc')  products.sort((a,b) => a.price - b.price);
-      if (_sortMode === 'price-desc') products.sort((a,b) => b.price - a.price);
-      if (_sortMode === 'name')       products.sort((a,b) => a.name.localeCompare(b.name));
-
-      const grid = document.getElementById('product-grid');
+      const grid  = document.getElementById('product-grid');
       const count = document.getElementById('results-count');
-      if (grid)  grid.innerHTML = products.map(p => productCard(p)).join('');
-      if (count) count.textContent = `Showing ${products.length} product${products.length !== 1 ? 's' : ''}`;
+      if (grid)  grid.innerHTML  = list.map(p => productCard(p)).join('');
+      if (count) count.textContent = `Showing ${list.length} item${list.length !== 1 ? 's' : ''}`;
     }
 
-    // Pre-select category from URL param
     const urlCat = new URLSearchParams(window.location.search).get('cat');
-    if (urlCat && CATEGORIES.includes(urlCat)) _activeCategory = urlCat;
+    if (urlCat && CATEGORIES.includes(urlCat)) _cat = urlCat;
 
     document.addEventListener('DOMContentLoaded', () => {
-      buildFilterTags();
+      buildFilters();
       renderGrid();
-
       document.getElementById('sort-select')?.addEventListener('change', e => {
-        _sortMode = e.target.value;
+        _sort = e.target.value;
         renderGrid();
       });
     });
   </script>
+  <style>
+    @media (max-width: 580px) { .coming-grid { grid-template-columns: 1fr !important; } }
+  </style>
 </body>
 </html>

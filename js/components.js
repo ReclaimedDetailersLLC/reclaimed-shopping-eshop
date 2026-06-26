@@ -1,11 +1,12 @@
 /* ============================================================
-   RECLAIMED GROUP — Shared Components (Nav, Footer, Cookie)
+   RECLAIMED CO. — Shared Components
    ============================================================ */
 
 function _activePage() {
   const p = window.location.pathname;
   if (p.includes('shop'))           return 'shop';
-  if (p.includes('custom-made'))    return 'custom';
+  if (p.includes('collections'))    return 'collections';
+  if (p.includes('custom'))         return 'custom';
   if (p.includes('about'))          return 'about';
   if (p.includes('contact'))        return 'contact';
   if (p.includes('product'))        return 'shop';
@@ -19,10 +20,10 @@ function renderNav() {
 
   const active = _activePage();
   const links = [
-    { href: 'index.html',       label: 'Home',        key: 'home'    },
-    { href: 'shop.html',        label: 'Shop',        key: 'shop'    },
-    { href: 'custom-made.html', label: 'Custom Made', key: 'custom'  },
-    { href: 'about.html',       label: 'About',       key: 'about'   },
+    { href: 'collections.html', label: 'Collections', key: 'collections' },
+    { href: 'shop.html',        label: 'Shop',        key: 'shop' },
+    { href: 'custom-made.html', label: 'Custom Made', key: 'custom' },
+    { href: 'about.html',       label: 'Our Story',   key: 'about' },
     { href: 'contact.html',     label: 'Contact',     key: 'contact' },
   ];
 
@@ -30,21 +31,23 @@ function renderNav() {
     <div class="container">
       <div class="nav-inner">
 
-        <a href="index.html" class="nav-logo" aria-label="Reclaimed Home">
-          <div class="nav-logo-text">RE<span>CLAIMED</span></div>
-          <div class="nav-logo-sub">Auto Detailing &amp; Supply</div>
+        <a href="index.html" class="nav-logo" aria-label="Reclaimed Co. Home">
+          <div class="nav-logo-mark">RECLAIMED.</div>
+          <div class="nav-logo-sub">Wear Your Story</div>
         </a>
 
-        <nav class="nav-links" aria-label="Main">
+        <nav class="nav-links" aria-label="Main navigation">
           ${links.map(l => `
             <a href="${l.href}" class="${active === l.key ? 'active' : ''}">${l.label}</a>
           `).join('')}
         </nav>
 
         <div class="nav-actions">
-          <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+          <button class="cart-btn" onclick="openCart()" aria-label="Open shopping cart">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 01-8 0"/>
             </svg>
             Cart
             <span class="cart-count" id="cart-count">0</span>
@@ -76,18 +79,18 @@ function renderFooter() {
     <div class="container">
       <div class="footer-grid">
 
-        <div class="footer-brand">
-          <div class="footer-logo">RE<span>CLAIMED</span></div>
-          <div class="footer-tagline">Auto Detailing &amp; Supply</div>
+        <div>
+          <div class="footer-logo">RECLAIMED.</div>
+          <div class="footer-tagline">Wear Your Story</div>
           <p class="footer-desc">
-            Premium detailing products and custom vehicle services for those who demand the best.
-            Restore. Protect. Reclaim.
+            Faith-inspired apparel and handmade goods for those who know what they've been brought through —
+            and aren't afraid to wear it.
           </p>
           <div class="footer-social">
-            <a href="#" class="social-link" aria-label="Facebook">F</a>
             <a href="#" class="social-link" aria-label="Instagram">IG</a>
             <a href="#" class="social-link" aria-label="TikTok">TT</a>
-            <a href="#" class="social-link" aria-label="YouTube">▶</a>
+            <a href="#" class="social-link" aria-label="Facebook">FB</a>
+            <a href="#" class="social-link" aria-label="Pinterest">P</a>
           </div>
         </div>
 
@@ -95,17 +98,17 @@ function renderFooter() {
           <div class="footer-heading">Shop</div>
           <div class="footer-links">
             <a href="shop.html">All Products</a>
-            <a href="shop.html?cat=Protection">Protection</a>
-            <a href="shop.html?cat=Washing">Washing</a>
-            <a href="shop.html?cat=Interior">Interior</a>
-            <a href="shop.html?cat=Bundles">Bundles</a>
+            <a href="collections.html">Collections</a>
+            <a href="shop.html?cat=Hoodies">Hoodies</a>
+            <a href="shop.html?cat=Tees">Tees</a>
+            <a href="shop.html?cat=Jewelry">Jewelry</a>
           </div>
         </div>
 
         <div>
           <div class="footer-heading">Company</div>
           <div class="footer-links">
-            <a href="about.html">About Us</a>
+            <a href="about.html">Our Story</a>
             <a href="custom-made.html">Custom Made</a>
             <a href="contact.html">Contact</a>
             <a href="privacy-policy.html">Privacy Policy</a>
@@ -115,18 +118,19 @@ function renderFooter() {
         </div>
 
         <div>
-          <div class="footer-heading">Get In Touch</div>
+          <div class="footer-heading">Contact</div>
           <div class="footer-contact-row">
             <span class="footer-contact-icon">✉</span>
-            <span class="footer-contact-text">info@reclaimedgroup.com</span>
-          </div>
-          <div class="footer-contact-row">
-            <span class="footer-contact-icon">📍</span>
-            <span class="footer-contact-text">Mobile service — contact us<br>for your area</span>
+            <span class="footer-contact-text">hello@reclaimedco.com</span>
           </div>
           <div class="footer-contact-row">
             <span class="footer-contact-icon">🕐</span>
-            <span class="footer-contact-text">Mon – Sat: 8 am – 6 pm</span>
+            <span class="footer-contact-text">Mon – Fri: 9 am – 5 pm CST<br>We respond within 24 hours</span>
+          </div>
+          <div class="footer-contact-row" style="margin-top:16px">
+            <span class="footer-contact-text" style="font-style:italic;color:rgba(248,245,240,.3);font-size:.78rem">
+              "He restores my soul." — Psalm 23:3
+            </span>
           </div>
         </div>
 
@@ -134,12 +138,12 @@ function renderFooter() {
 
       <div class="footer-bottom">
         <div class="footer-copy">
-          &copy; ${new Date().getFullYear()} Reclaimed Group LLC. All rights reserved.
+          &copy; ${new Date().getFullYear()} Reclaimed Co. All rights reserved. Handmade with purpose.
         </div>
         <div class="footer-legal">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="cookie-policy.html">Cookie Policy</a>
-          <a href="terms-conditions.html">Terms &amp; Conditions</a>
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="cookie-policy.html">Cookies</a>
+          <a href="terms-conditions.html">Terms</a>
         </div>
       </div>
 
@@ -159,15 +163,13 @@ function renderCookieBanner() {
   banner.innerHTML = `
     <div class="cookie-icon" aria-hidden="true">🍪</div>
     <div class="cookie-text">
-      We use cookies to provide essential site functionality, analyze traffic, and improve your experience.
-      By clicking <strong>Accept All</strong>, you agree to our
-      <a href="cookie-policy.html">Cookie Policy</a> and
-      <a href="privacy-policy.html">Privacy Policy</a>.
+      We use cookies for essential site function and to understand how people find us.
+      Read our <a href="cookie-policy.html">Cookie Policy</a> and
+      <a href="privacy-policy.html">Privacy Policy</a> to learn more.
     </div>
     <div class="cookie-actions">
-      <button class="btn btn-primary btn-sm" onclick="acceptCookies('all')">Accept All</button>
+      <button class="btn btn-sm" onclick="acceptCookies('all')">Accept All</button>
       <button class="btn btn-outline btn-sm" onclick="acceptCookies('essential')">Essential Only</button>
-      <a href="cookie-policy.html" class="btn btn-ghost btn-sm">Learn More</a>
     </div>
   `;
 

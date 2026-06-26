@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Reclaimed Group — Premium auto detailing products and custom vehicle services. Restore. Protect. Reclaim.">
-  <title>Reclaimed Group | Auto Detailing & Supply</title>
+  <meta name="description" content="Reclaimed Co. — Faith-inspired heavyweight apparel and handmade goods. Wear Your Story.">
+  <title>Reclaimed Co. | Wear Your Story</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -12,122 +12,147 @@
   <header id="nav" role="banner"></header>
 
   <!-- ═══ HERO ═══════════════════════════════════════════════ -->
-  <section class="hero" aria-label="Welcome to Reclaimed">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="hero-grid-lines" aria-hidden="true"></div>
+  <section class="hero" aria-label="Reclaimed Co. — Wear Your Story">
+    <div class="hero-texture" aria-hidden="true"></div>
 
-    <div class="container">
+    <div class="container" style="width:100%;position:relative;z-index:2">
       <div class="hero-content">
-        <div class="hero-eyebrow">Premium Detailing Supply</div>
+        <p class="hero-tagline">Faith. Fabric. Purpose.</p>
         <h1>
-          RESTORE<br>
-          PROTECT<br>
-          <span class="line-gold">RECLAIM.</span>
+          WEAR<br>
+          YOUR<br>
+          <span class="script">STORY.</span>
         </h1>
-        <p class="hero-desc">
-          Professional-grade auto detailing products and custom services for those
-          who refuse to settle. Your vehicle deserves the best — and so do you.
+        <p class="hero-sub">
+          Premium heavyweight apparel and handmade goods for those who've been
+          broken, restored, and aren't afraid to show it.
+          Phase 1 — now live.
         </p>
         <div class="hero-actions">
-          <a href="shop.html" class="btn btn-primary">Shop Now &rarr;</a>
-          <a href="custom-made.html" class="btn btn-outline">Custom Made</a>
+          <a href="shop.html" class="btn btn-dark">Shop Phase 1 &rarr;</a>
+          <a href="about.html" class="btn btn-outline">Our Story</a>
         </div>
       </div>
     </div>
 
-    <div class="hero-badge" aria-hidden="true">
-      <div class="hero-badge-inner">
-        <span class="hero-badge-line1">Est.</span>
-        <span class="hero-badge-num">2024</span>
-        <span class="hero-badge-line1">Reclaimed Group</span>
-      </div>
+    <div class="hero-accent" aria-hidden="true">
+      <div class="hero-accent-text">RECLAIMED.</div>
     </div>
+
+    <div class="hero-scroll" aria-hidden="true">Scroll</div>
   </section>
 
-  <!-- ═══ WHY RECLAIMED ═══════════════════════════════════════ -->
+  <!-- ═══ COLLECTIONS ═════════════════════════════════════════ -->
   <section class="section">
     <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Phase 1 Launch</div>
+        <h2>Our Collections</h2>
+      </div>
+      <div class="collections-grid">
+        <a href="shop.html?cat=Hoodies" class="collection-card" aria-label="The Found Collection — Hoodies">
+          <div class="collection-bg" style="background:linear-gradient(160deg,#2A2520 0%,#1C1A17 100%);width:100%;height:100%"></div>
+          <div class="collection-overlay"></div>
+          <div class="collection-info">
+            <div class="collection-label">Hoodies &amp; Headwear</div>
+            <div class="collection-name">The Found Collection</div>
+            <span class="collection-link">Shop Now &rarr;</span>
+          </div>
+        </a>
+        <a href="shop.html?cat=Tees" class="collection-card" aria-label="The Redeemed Collection — Tees">
+          <div class="collection-bg" style="background:linear-gradient(160deg,#4A4030 0%,#2E2820 100%);width:100%;height:100%"></div>
+          <div class="collection-overlay"></div>
+          <div class="collection-info">
+            <div class="collection-label">Heavyweight Tees</div>
+            <div class="collection-name">The Redeemed Collection</div>
+            <span class="collection-link">Shop Now &rarr;</span>
+          </div>
+        </a>
+        <a href="shop.html?cat=Jewelry" class="collection-card" aria-label="The Grace Collection — Jewelry and Accessories">
+          <div class="collection-bg" style="background:linear-gradient(160deg,#5C5248 0%,#3A3228 100%);width:100%;height:100%"></div>
+          <div class="collection-overlay"></div>
+          <div class="collection-info">
+            <div class="collection-label">Jewelry &amp; Accessories</div>
+            <div class="collection-name">The Grace Collection</div>
+            <span class="collection-link">Shop Now &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MISSION STATEMENT ════════════════════════════════════ -->
+  <div class="mission-block">
+    <div class="container">
+      <div class="eyebrow" style="color:rgba(196,164,106,.8)">Our Foundation</div>
+      <h2>"Not defined by where you've been —<br><em>defined by where you're going."</em></h2>
+      <p class="mission-verse">
+        "He restores my soul. He leads me in paths of righteousness for his name's sake."
+      </p>
+      <span class="mission-ref">Psalm 23:3</span>
+    </div>
+  </div>
+
+  <!-- ═══ FEATURED PRODUCTS ════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:36px">
+        <div>
+          <div class="eyebrow">Phase 1 Drop</div>
+          <h2>Shop the Launch</h2>
+        </div>
+        <a href="shop.html" class="btn btn-outline">View All &rarr;</a>
+      </div>
+      <div class="product-grid" id="featured-grid"></div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY RECLAIMED ════════════════════════════════════════ -->
+  <section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
       <div class="section-header text-center">
-        <div class="eyebrow">Why Reclaimed</div>
-        <h2>Built Different</h2>
+        <div class="eyebrow">Why We're Different</div>
+        <h2>Built with Intention</h2>
       </div>
       <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true">🏆</div>
-          <div class="feature-title">Pro-Grade Quality</div>
+        <div class="feature-item">
+          <div class="feature-num">01</div>
+          <div class="feature-title">Heavyweight Quality</div>
           <p class="feature-desc">
-            Every product in our lineup meets professional detailer standards. No filler ingredients,
-            no watered-down formulas — just products that actually work the way they're supposed to.
+            450GSM hoodies and 260GSM tees. We don't make light, thin clothing.
+            Every piece is built to last years — not seasons.
           </p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true">🔬</div>
-          <div class="feature-title">Tested &amp; Proven</div>
+        <div class="feature-item">
+          <div class="feature-num">02</div>
+          <div class="feature-title">Faith-Rooted Design</div>
           <p class="feature-desc">
-            We don't stock it until we've run it through real-world conditions — swirl removal tests,
-            coating durability checks, and wash safety evaluations on actual vehicles.
+            Every graphic references Scripture. Not preachy — just intentional.
+            These are pieces that carry meaning without announcing it.
           </p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true">🤝</div>
-          <div class="feature-title">Personal Service</div>
+        <div class="feature-item">
+          <div class="feature-num">03</div>
+          <div class="feature-title">Small & Personal</div>
           <p class="feature-desc">
-            Have questions about which product is right for your vehicle? Reach out directly.
-            We're a small operation and we're here to give you real, honest guidance.
+            We're not a warehouse. We're a small operation and we care about
+            every piece that goes out. Reach out anytime — real person, real response.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ FEATURED PRODUCTS ═══════════════════════════════════ -->
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">
-        <div>
-          <div class="eyebrow">Top Picks</div>
-          <h2>Featured Products</h2>
-        </div>
-        <a href="shop.html" class="btn btn-outline">View All Products</a>
-      </div>
-      <div class="product-grid" id="featured-products"></div>
-    </div>
-  </section>
-
-  <!-- ═══ CUSTOM MADE BANNER ══════════════════════════════════ -->
+  <!-- ═══ CTA — CUSTOM MADE ════════════════════════════════════ -->
   <section class="cta-banner">
     <div class="container">
-      <div class="eyebrow">Bespoke Service</div>
-      <h2>Need Something <span class="text-gold">Custom Made?</span></h2>
+      <div class="eyebrow">Tailored for You</div>
+      <h2>Need Something <em>Custom?</em></h2>
       <p>
-        From custom detailing packages to specialty bundles tailored for your vehicle —
-        we'll work with you directly to get it right.
+        Custom sizing, custom orders, and gift sets available. Tell us what you're looking for
+        and we'll make it happen.
       </p>
-      <a href="custom-made.html" class="btn btn-primary">Tell Us What You Need &rarr;</a>
-    </div>
-  </section>
-
-  <!-- ═══ GALLERY STRIP ════════════════════════════════════════ -->
-  <section aria-label="Gallery">
-    <div class="gallery-strip">
-      <div class="gallery-item">
-        <div class="gallery-tile" style="background:linear-gradient(135deg,#0a0a2e,#2a2a6e);width:100%;height:100%;"></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-tile" style="background:linear-gradient(135deg,#1a0a0a,#4a1a1a);width:100%;height:100%;"></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-tile" style="background:linear-gradient(135deg,#0a1a0a,#1a3a1a);width:100%;height:100%;"></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-tile" style="background:linear-gradient(135deg,#1a1200,#362800,rgba(200,151,59,.4));width:100%;height:100%;"></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-tile" style="background:linear-gradient(135deg,#0a1a2a,#1a3a5a);width:100%;height:100%;"></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-tile" style="background:linear-gradient(135deg,#1a0a1a,#3a1a3a);width:100%;height:100%;"></div>
-      </div>
+      <a href="custom-made.html" class="btn btn-dark">Request Custom Made &rarr;</a>
     </div>
   </section>
 
@@ -135,34 +160,34 @@
   <section class="section">
     <div class="container">
       <div class="section-header text-center">
-        <div class="eyebrow">Reviews</div>
-        <h2>What Our Customers Say</h2>
+        <div class="eyebrow">The People</div>
+        <h2>What People Are Saying</h2>
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="stars" aria-label="5 stars">★★★★★</div>
           <p class="testimonial-text">
-            "The Ceramic Shield Pro is legitimately the best coating I've used at this price point.
-            Water beads like nothing else and the finish is incredible. Highly recommend."
+            "I've been looking for a brand that actually means something. The hoodie quality is insane —
+            way heavier than I expected. And the back design? I get asked about it every single time I wear it."
           </p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">MR</div>
+            <div class="testimonial-avatar" aria-hidden="true">MJ</div>
             <div>
-              <div class="testimonial-name">Marcus R.</div>
-              <div class="testimonial-location">Atlanta, GA</div>
+              <div class="testimonial-name">Marcus J.</div>
+              <div class="testimonial-location">Dallas, TX</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
           <div class="stars" aria-label="5 stars">★★★★★</div>
           <p class="testimonial-text">
-            "Ordered the Signature Bundle and it genuinely replaced 8 separate products I was buying.
-            Everything works exactly as described. Customer service was outstanding too."
+            "Bought the cross necklace and the Sand hoodie together as a birthday gift for my husband.
+            He hasn't taken either off. The packaging was beautiful and the quality spoke for itself."
           </p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">JK</div>
+            <div class="testimonial-avatar" aria-hidden="true">RL</div>
             <div>
-              <div class="testimonial-name">Jamie K.</div>
+              <div class="testimonial-name">Rachael L.</div>
               <div class="testimonial-location">Nashville, TN</div>
             </div>
           </div>
@@ -170,14 +195,14 @@
         <div class="testimonial-card">
           <div class="stars" aria-label="5 stars">★★★★★</div>
           <p class="testimonial-text">
-            "Got a custom interior/exterior package done through them and I was blown away.
-            They actually listened to what I wanted and delivered exactly that. Won't go anywhere else."
+            "This is the kind of brand I've always wanted to exist. Clean. Minimal. Faith-filled.
+            The cream tee fits exactly like it should — oversized but structured. 10/10, already reordering."
           </p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">TW</div>
+            <div class="testimonial-avatar" aria-hidden="true">AW</div>
             <div>
-              <div class="testimonial-name">Tasha W.</div>
-              <div class="testimonial-location">Birmingham, AL</div>
+              <div class="testimonial-name">Alexis W.</div>
+              <div class="testimonial-location">Atlanta, GA</div>
             </div>
           </div>
         </div>
@@ -193,10 +218,10 @@
   <script src="js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const grid = document.getElementById('featured-products');
+      const grid = document.getElementById('featured-grid');
       if (grid) {
-        const featured = PRODUCTS.filter(p => p.badge || p.id <= 8).slice(0, 8);
-        grid.innerHTML = featured.map(p => productCard(p)).join('');
+        // Show first 6 products on home page
+        grid.innerHTML = PRODUCTS.slice(0, 6).map(p => productCard(p)).join('');
       }
     });
   </script>

@@ -1,5 +1,5 @@
 /* ============================================================
-   RECLAIMED GROUP — Main Initialization & Utilities
+   RECLAIMED CO. — Main Initialization & Utilities
    ============================================================ */
 
 /* ── Toast ───────────────────────────────── */
@@ -64,12 +64,12 @@ function _ensureCartDOM() {
         <span class="cart-total-label">Estimated Total</span>
         <span class="cart-total-val" id="rc-cart-total">$0.00</span>
       </div>
-      <a href="contact.html?from=cart" class="btn btn-primary btn-full" onclick="closeCart()">
-        Contact to Order &rarr;
+      <a href="contact.html?from=cart" class="btn btn-dark btn-full" onclick="closeCart()">
+        Inquire to Order &rarr;
       </a>
       <div class="cart-note">
-        We don't process payments online. After you submit your order inquiry,
-        we'll reach out within 24 hours to confirm details and arrange secure payment.
+        We don't process payments online yet — your cart summary will be included when you reach out,
+        and we'll confirm your order and arrange secure payment together.
       </div>
     </div>
   `;
@@ -98,25 +98,30 @@ function _renderCartItems() {
   if (cart.items.length === 0) {
     container.innerHTML = `
       <div class="cart-empty">
-        <div class="cart-empty-icon" aria-hidden="true">🛒</div>
+        <div class="cart-empty-icon" aria-hidden="true">🛍</div>
         <p>Your cart is empty.</p>
-        <a href="shop.html" class="btn btn-ghost btn-sm" onclick="closeCart()">Browse Products</a>
+        <a href="shop.html" class="btn btn-outline btn-sm" onclick="closeCart()" style="margin-top:8px">Browse the Shop</a>
       </div>
     `;
   } else {
     container.innerHTML = cart.items.map(item => `
       <div class="cart-item" data-id="${item.id}">
         <div class="cart-item-img">
-          <div style="width:100%;height:100%;background:${item.gradient};display:flex;align-items:center;justify-content:center;font-size:1.6rem"
-               aria-hidden="true">${item.icon}</div>
+          <div style="width:100%;height:100%;background:${item.bgColor};display:flex;align-items:center;justify-content:center" aria-hidden="true">
+            <span style="font-family:'Playfair Display',serif;font-size:.65rem;font-weight:700;color:${item.textColor};letter-spacing:.05em;text-align:center;padding:4px">RCL.</span>
+          </div>
         </div>
         <div class="cart-item-info">
+          <div class="cart-item-collection">${item.collection}</div>
           <div class="cart-item-name">${item.name}</div>
-          <div class="cart-item-price">$${item.price.toFixed(2)} each</div>
-          <div class="cart-item-qty">
-            <button class="qty-btn" onclick="changeCartQty(${item.id}, ${item.qty - 1})" aria-label="Decrease quantity">−</button>
-            <span class="qty-num" aria-label="Quantity: ${item.qty}">${item.qty}</span>
-            <button class="qty-btn" onclick="changeCartQty(${item.id}, ${item.qty + 1})" aria-label="Increase quantity">+</button>
+          <div class="cart-item-color">${item.variant}</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+            <div class="cart-item-qty">
+              <button class="qty-btn" onclick="changeCartQty(${item.id}, ${item.qty - 1})" aria-label="Decrease quantity">−</button>
+              <span class="qty-num">${item.qty}</span>
+              <button class="qty-btn" onclick="changeCartQty(${item.id}, ${item.qty + 1})" aria-label="Increase quantity">+</button>
+            </div>
+            <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
           </div>
         </div>
         <button class="cart-item-remove" onclick="removeCartItem(${item.id})" aria-label="Remove ${item.name}">✕</button>
@@ -145,35 +150,49 @@ function _updateCartCount() {
 }
 
 /* ── Product Card ────────────────────────── */
-function productCard(p, withOverlay = true) {
+function productCard(p) {
+  const swatchHTML = p.swatches && p.swatches.length > 1 ? `
+    <div class="product-swatches">
+      ${p.swatches.map((s, i) => `
+        <span class="swatch ${i === 0 ? 'active' : ''}"
+              style="background:${s}"
+              title="${p.swatchNames[i]}"
+              aria-label="${p.swatchNames[i]}"></span>
+      `).join('')}
+    </div>
+  ` : '';
+
   return `
-    <article class="product-card" onclick="window.location='product.html?id=${p.id}'" role="link" tabindex="0"
+    <article class="product-card"
+             onclick="window.location='product.html?id=${p.id}'"
+             role="link" tabindex="0"
              onkeydown="if(event.key==='Enter')window.location='product.html?id=${p.id}'"
-             aria-label="View ${p.name}">
-      <div class="product-image">
-        <div class="product-image-bg" style="background:${p.gradient}" aria-hidden="true">
-          <span style="font-size:3rem">${p.icon}</span>
+             aria-label="View ${p.name} in ${p.variant}">
+      <div class="product-img">
+        <div class="product-img-swatch"
+             style="background:${p.bgColor};width:100%;height:100%;display:flex;align-items:center;justify-content:center"
+             aria-hidden="true">
+          <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:${p.textColor};letter-spacing:-.01em;text-align:center;padding:20px;line-height:1.2">RECLAIMED.</span>
         </div>
-        ${p.badge ? `<div class="product-badge ${p.badgeType}" aria-label="${p.badge}">${p.badge}</div>` : ''}
-        ${withOverlay ? `
-          <div class="product-overlay" aria-hidden="true">
-            <button class="btn btn-ghost"
-              onclick="event.stopPropagation();addToCart(${p.id})"
-              aria-label="Add ${p.name} to cart">
-              + Add to Cart
-            </button>
-          </div>
-        ` : ''}
+        ${p.badge ? `<div class="product-badge ${p.badgeClass}">${p.badge}</div>` : ''}
+        <div class="product-overlay" aria-hidden="true">
+          <button class="btn btn-dark btn-sm"
+            onclick="event.stopPropagation();addToCart(${p.id})"
+            aria-label="Add ${p.name} to cart">
+            + Add to Cart
+          </button>
+        </div>
       </div>
       <div class="product-info">
-        <div class="product-category">${p.category}</div>
+        <div class="product-collection">${p.collection}</div>
         <div class="product-name">${p.name}</div>
-        <div class="product-sub">${p.subtitle}</div>
+        <div class="product-color">${p.variant}</div>
+        ${swatchHTML}
         <div class="product-footer">
           <div class="product-price">$${p.price.toFixed(2)}</div>
           <button class="btn btn-ghost btn-sm"
             onclick="event.stopPropagation();addToCart(${p.id})"
-            aria-label="Add ${p.name} to cart">
+            aria-label="Add to cart">
             + Cart
           </button>
         </div>
@@ -187,10 +206,10 @@ function addToCart(id) {
   if (!p) return;
   cart.add(p);
   _updateCartCount();
-  showToast(`${p.name} added to cart ✓`);
+  showToast(`${p.name} — ${p.variant} added to cart`);
 }
 
-/* ── Pre-fill contact form from cart ─────── */
+/* ── Pre-fill contact from cart ──────────── */
 function _prefillCartOrder() {
   const params = new URLSearchParams(window.location.search);
   if (params.get('from') !== 'cart') return;
@@ -198,35 +217,31 @@ function _prefillCartOrder() {
   if (!summary) return;
   const msgEl = document.getElementById('message');
   if (msgEl && !msgEl.value) {
-    msgEl.value = 'I would like to order the following:\n\n' + summary + '\n\nPlease contact me to confirm and arrange payment.';
+    msgEl.value = 'Hi! I\'d like to order the following:\n\n' + summary + '\n\nPlease reach out to confirm availability and arrange payment. Thank you!';
   }
 }
 
-/* ── Contact / Custom Form Validation ────── */
+/* ── Form Submission ─────────────────────── */
 function handleFormSubmit(formId) {
   const form = document.getElementById(formId);
-  if (!form) return;
+  if (!form) return false;
 
   const checkbox = form.querySelector('input[name="agree_policies"]');
   if (!checkbox || !checkbox.checked) {
-    showToast('Please read and accept our policies first.');
-    checkbox?.closest('.form-check')?.classList.add('check-error');
+    showToast('Please read and accept our policies to continue.');
+    checkbox?.closest('.form-check')?.querySelector('.check-box')?.classList.add('check-error');
     return false;
   }
 
-  // Build mailto link
-  const data = new FormData(form);
+  const data   = new FormData(form);
   const name    = data.get('name')    || '';
   const email   = data.get('email')   || '';
   const phone   = data.get('phone')   || '';
-  const subject = data.get('subject') || 'Inquiry from Website';
+  const subject = data.get('subject') || 'Inquiry — Reclaimed Co.';
   const message = data.get('message') || '';
 
-  const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`
-  );
-
-  window.location.href = `mailto:info@reclaimedgroup.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`);
+  window.location.href = `mailto:hello@reclaimedco.com?subject=${encodeURIComponent(subject)}&body=${body}`;
 
   showToast('Opening your email client...');
   return false;
@@ -241,14 +256,13 @@ document.addEventListener('DOMContentLoaded', () => {
   _updateCartCount();
 
   cart.onChange(_updateCartCount);
-
-  // Pre-fill from cart if on contact page
   _prefillCartOrder();
 
-  // Handle check-error class removal on checkbox change
   document.querySelectorAll('input[name="agree_policies"]').forEach(cb => {
     cb.addEventListener('change', () => {
-      if (cb.checked) cb.closest('.form-check')?.classList.remove('check-error');
+      if (cb.checked) {
+        cb.closest('.form-check')?.querySelector('.check-box')?.classList.remove('check-error');
+      }
     });
   });
 });
