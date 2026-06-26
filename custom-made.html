@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Custom made detailing packages and specialty bundles from Reclaimed Group — tailored to your vehicle and needs.">
+  <title>Custom Made | Reclaimed Group</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header id="nav" role="banner"></header>
+
+  <!-- ═══ PAGE HEADER ═══════════════════════════════════════════ -->
+  <div class="page-header">
+    <div class="container">
+      <div class="eyebrow" style="justify-content:center">Tailored for You</div>
+      <h1>Custom <span class="text-gold">Made</span></h1>
+      <p>Every vehicle is different. Tell us about yours and we'll put together a package built specifically for your needs and goals.</p>
+    </div>
+  </div>
+
+  <!-- ═══ HOW IT WORKS ══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="eyebrow">The Process</div>
+        <h2>Simple as 1-2-3</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-num" aria-label="Step 1">1</div>
+          <div class="process-title">Tell Us About It</div>
+          <p class="process-desc">
+            Fill out the form below with your vehicle details, what you're looking to achieve, and any specific issues or goals you have in mind.
+          </p>
+        </div>
+        <div class="process-step">
+          <div class="process-num" aria-label="Step 2">2</div>
+          <div class="process-title">We Design Your Package</div>
+          <p class="process-desc">
+            We'll review your request and put together a custom product bundle or service package tailored specifically to your vehicle and budget.
+          </p>
+        </div>
+        <div class="process-step">
+          <div class="process-num" aria-label="Step 3">3</div>
+          <div class="process-title">We Deliver &amp; Support</div>
+          <p class="process-desc">
+            We'll send you the details, walk you through the process, and be available for questions every step of the way. No guesswork — just results.
+          </p>
+        </div>
+      </div>
+
+      <!-- ─── What We Can Do ─── -->
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;margin-bottom:60px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
+          <div>
+            <div class="eyebrow">Custom Options</div>
+            <h3 style="margin-bottom:20px">What We Can Build For You</h3>
+            <ul class="feature-list">
+              <li><span class="check-icon" aria-hidden="true">✓</span><span>Custom product bundle for your specific vehicle type</span></li>
+              <li><span class="check-icon" aria-hidden="true">✓</span><span>Step-by-step detailing guide tailored to your paint and condition</span></li>
+              <li><span class="check-icon" aria-hidden="true">✓</span><span>Seasonal maintenance kit (winter prep, summer UV protection, etc.)</span></li>
+              <li><span class="check-icon" aria-hidden="true">✓</span><span>Gift sets and personalized detailing starter kits</span></li>
+              <li><span class="check-icon" aria-hidden="true">✓</span><span>Fleet or multi-vehicle bulk orders</span></li>
+              <li><span class="check-icon" aria-hidden="true">✓</span><span>Show-car prep packages</span></li>
+            </ul>
+          </div>
+          <div>
+            <div class="eyebrow">Good to Know</div>
+            <h3 style="margin-bottom:20px">Before You Reach Out</h3>
+            <ul class="feature-list">
+              <li><span class="check-icon" aria-hidden="true">ℹ</span><span>Custom inquiries are responded to within 1 business day</span></li>
+              <li><span class="check-icon" aria-hidden="true">ℹ</span><span>All custom orders are confirmed via email or phone call</span></li>
+              <li><span class="check-icon" aria-hidden="true">ℹ</span><span>Pricing is determined after we review your specific request</span></li>
+              <li><span class="check-icon" aria-hidden="true">ℹ</span><span>No obligation until you agree to the custom quote</span></li>
+              <li><span class="check-icon" aria-hidden="true">ℹ</span><span>Bulk orders may qualify for additional discounts</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Custom Request Form ─── -->
+      <div style="max-width:720px;margin:0 auto">
+        <div class="section-header text-center">
+          <div class="eyebrow">Get Started</div>
+          <h2>Submit Your Custom Request</h2>
+        </div>
+
+        <!-- Policy Notice -->
+        <div class="policy-box" role="note">
+          <span class="policy-box-icon" aria-hidden="true">⚠️</span>
+          <div class="policy-box-text">
+            <strong>Please read before submitting.</strong> Before sending your custom request,
+            we ask that you take a moment to read our
+            <a href="terms-conditions.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>,
+            <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>, and
+            <a href="cookie-policy.html" target="_blank" rel="noopener">Cookie Policy</a>.
+            By checking the box at the bottom of this form, you confirm you have read and agree to these policies.
+            We cannot process your request without your agreement.
+          </div>
+        </div>
+
+        <form id="custom-form" onsubmit="return handleFormSubmit('custom-form')" novalidate>
+
+          <div class="form-section-hd">Your Information</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="cm-name">Full Name <span class="req">*</span></label>
+              <input class="form-input" type="text" id="cm-name" name="name" placeholder="Your full name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cm-email">Email Address <span class="req">*</span></label>
+              <input class="form-input" type="email" id="cm-email" name="email" placeholder="your@email.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="cm-phone">Phone Number</label>
+              <input class="form-input" type="tel" id="cm-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cm-contact-pref">Preferred Contact Method</label>
+              <select class="form-select" id="cm-contact-pref" name="subject">
+                <option value="Custom Order Request — Email">Email me back</option>
+                <option value="Custom Order Request — Phone">Call or text me</option>
+                <option value="Custom Order Request — Either">Either is fine</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-section-hd">Vehicle Details</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="cm-year">Year</label>
+              <input class="form-input" type="text" id="cm-year" placeholder="e.g. 2021">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cm-make">Make</label>
+              <input class="form-input" type="text" id="cm-make" placeholder="e.g. Ford">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="cm-model">Model</label>
+              <input class="form-input" type="text" id="cm-model" placeholder="e.g. Mustang">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cm-color">Paint Color / Finish</label>
+              <input class="form-input" type="text" id="cm-color" placeholder="e.g. Magnetic Grey Metallic">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cm-condition">Vehicle Condition</label>
+            <select class="form-select" id="cm-condition">
+              <option value="">Select condition...</option>
+              <option>Brand new / just purchased</option>
+              <option>Good — minor imperfections</option>
+              <option>Fair — visible swirls or light scratches</option>
+              <option>Needs paint correction / heavy oxidation</option>
+              <option>Daily driver — mostly maintenance</option>
+            </select>
+          </div>
+
+          <div class="form-section-hd">Your Request</div>
+          <div class="form-group">
+            <label class="form-label" for="cm-goal">What Are You Trying to Achieve? <span class="req">*</span></label>
+            <textarea class="form-textarea" id="cm-goal" name="message" rows="6" required
+              placeholder="Tell us what you're looking for — paint protection, interior restoration, a gift for someone, a show package, etc. The more detail you give us, the better we can tailor something for you."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cm-budget">Approximate Budget</label>
+            <select class="form-select" id="cm-budget">
+              <option value="">Prefer not to say</option>
+              <option>Under $50</option>
+              <option>$50 – $100</option>
+              <option>$100 – $200</option>
+              <option>$200 – $500</option>
+              <option>$500+</option>
+            </select>
+          </div>
+
+          <!-- Policy Agreement -->
+          <div class="divider" style="margin:24px 0"></div>
+          <div style="background:rgba(200,151,59,.06);border:1px solid rgba(200,151,59,.2);border-radius:var(--radius-lg);padding:20px 22px;margin-bottom:20px">
+            <p style="font-size:.82rem;color:var(--text-2);margin-bottom:14px;line-height:1.6">
+              <strong style="color:var(--text-1)">Before you submit:</strong> Please confirm that you have read and understand our policies.
+            </p>
+            <label class="form-check">
+              <input type="checkbox" name="agree_policies" required>
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text">
+                I have read and agree to Reclaimed Group's
+                <a href="terms-conditions.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>,
+                <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>, and
+                <a href="cookie-policy.html" target="_blank" rel="noopener">Cookie Policy</a>.
+                I understand that submitting this form does not obligate me or Reclaimed Group to any purchase.
+              </span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            Submit My Custom Request &rarr;
+          </button>
+          <p style="font-size:.75rem;color:var(--text-3);text-align:center;margin-top:12px">
+            We'll respond within 1 business day. Submitting opens your default email client.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" role="contentinfo"></footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

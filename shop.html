@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop all Reclaimed Group auto detailing products — ceramic coatings, interior kits, wash supplies, paint correction, and more.">
+  <title>Shop | Reclaimed Group</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header id="nav" role="banner"></header>
+
+  <!-- ═══ PAGE HEADER ═══════════════════════════════════════════ -->
+  <div class="page-header">
+    <div class="container">
+      <div class="eyebrow" style="justify-content:center">Our Lineup</div>
+      <h1>The <span class="text-gold">Shop</span></h1>
+      <p>Professional-grade detailing products available for order. Browse below and contact us to purchase.</p>
+    </div>
+  </div>
+
+  <!-- ═══ PRODUCTS ═══════════════════════════════════════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <span class="filter-label">Filter:</span>
+        <div class="filter-tags" id="filter-tags" role="group" aria-label="Product categories"></div>
+        <select class="sort-select" id="sort-select" aria-label="Sort products">
+          <option value="default">Default</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+
+      <!-- Results count -->
+      <p style="font-size:.78rem;color:var(--text-3);margin-bottom:20px" id="results-count"></p>
+
+      <!-- Grid -->
+      <div class="product-grid" id="product-grid"></div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CTA ════════════════════════════════════════════════════ -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="eyebrow">Not Sure?</div>
+      <h2>Let Us <span class="text-gold">Guide You</span></h2>
+      <p>Tell us about your vehicle and goals — we'll recommend the right products and put together a custom package for you.</p>
+      <a href="contact.html" class="btn btn-primary">Get Personalized Advice &rarr;</a>
+    </div>
+  </section>
+
+  <footer id="footer" role="contentinfo"></footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let _activeCategory = 'All';
+    let _sortMode = 'default';
+
+    function buildFilterTags() {
+      const container = document.getElementById('filter-tags');
+      if (!container) return;
+      const cats = ['All', ...new Set(PRODUCTS.map(p => p.category))];
+      container.innerHTML = cats.map(c => `
+        <button class="filter-tag ${c === _activeCategory ? 'active' : ''}"
+                onclick="setCategory('${c}')"
+                aria-pressed="${c === _activeCategory}">${c}</button>
+      `).join('');
+    }
+
+    function setCategory(cat) {
+      _activeCategory = cat;
+      buildFilterTags();
+      renderGrid();
+    }
+
+    function renderGrid() {
+      let products = _activeCategory === 'All'
+        ? [...PRODUCTS]
+        : PRODUCTS.filter(p => p.category === _activeCategory);
+
+      if (_sortMode === 'price-asc')  products.sort((a,b) => a.price - b.price);
+      if (_sortMode === 'price-desc') products.sort((a,b) => b.price - a.price);
+      if (_sortMode === 'name')       products.sort((a,b) => a.name.localeCompare(b.name));
+
+      const grid = document.getElementById('product-grid');
+      const count = document.getElementById('results-count');
+      if (grid)  grid.innerHTML = products.map(p => productCard(p)).join('');
+      if (count) count.textContent = `Showing ${products.length} product${products.length !== 1 ? 's' : ''}`;
+    }
+
+    // Pre-select category from URL param
+    const urlCat = new URLSearchParams(window.location.search).get('cat');
+    if (urlCat && CATEGORIES.includes(urlCat)) _activeCategory = urlCat;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      buildFilterTags();
+      renderGrid();
+
+      document.getElementById('sort-select')?.addEventListener('change', e => {
+        _sortMode = e.target.value;
+        renderGrid();
+      });
+    });
+  </script>
+</body>
+</html>

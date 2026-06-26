@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Reclaimed Group — product questions, order inquiries, or anything else. We respond within 24 hours.">
+  <title>Contact | Reclaimed Group</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header id="nav" role="banner"></header>
+
+  <!-- ═══ PAGE HEADER ═══════════════════════════════════════════ -->
+  <div class="page-header">
+    <div class="container">
+      <div class="eyebrow" style="justify-content:center">Reach Out</div>
+      <h1>Get in <span class="text-gold">Touch</span></h1>
+      <p>Have a question about a product, want to place an order, or just need advice? We're here and we respond fast.</p>
+    </div>
+  </div>
+
+  <!-- ═══ CONTACT CONTENT ════════════════════════════════════════ -->
+  <section class="section" style="padding-top:40px">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1.8fr;gap:64px;align-items:start" class="contact-layout">
+
+        <!-- Left: Contact Info -->
+        <div>
+          <div class="eyebrow">Details</div>
+          <h2 style="margin-bottom:28px">Contact Info</h2>
+
+          <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:36px">
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:42px;height:42px;background:rgba(200,151,59,.1);border:1px solid rgba(200,151,59,.3);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0" aria-hidden="true">✉</div>
+              <div>
+                <div style="font-family:var(--font-h);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:4px">Email</div>
+                <div style="font-size:.95rem;color:var(--text-1)">info@reclaimedgroup.com</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:42px;height:42px;background:rgba(200,151,59,.1);border:1px solid rgba(200,151,59,.3);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0" aria-hidden="true">🕐</div>
+              <div>
+                <div style="font-family:var(--font-h);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:4px">Response Time</div>
+                <div style="font-size:.95rem;color:var(--text-1)">Within 24 business hours</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:42px;height:42px;background:rgba(200,151,59,.1);border:1px solid rgba(200,151,59,.3);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0" aria-hidden="true">📅</div>
+              <div>
+                <div style="font-family:var(--font-h);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:4px">Hours</div>
+                <div style="font-size:.95rem;color:var(--text-1)">Mon – Sat: 8 am – 6 pm</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px">
+            <p style="font-family:var(--font-h);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px">Why Contact Instead of Checkout?</p>
+            <p style="font-size:.84rem;color:var(--text-2);line-height:1.7">
+              We don't process payments online at this time — this ensures your financial information is always handled securely. Once you reach out, we'll confirm your order, answer any questions, and arrange a safe payment method together.
+            </p>
+          </div>
+
+          <div style="margin-top:28px">
+            <p style="font-family:var(--font-h);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px">Follow Us</p>
+            <div style="display:flex;gap:10px">
+              <a href="#" class="social-link" aria-label="Facebook">F</a>
+              <a href="#" class="social-link" aria-label="Instagram">IG</a>
+              <a href="#" class="social-link" aria-label="TikTok">TT</a>
+              <a href="#" class="social-link" aria-label="YouTube">▶</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div>
+          <!-- Policy Notice -->
+          <div class="policy-box" role="note">
+            <span class="policy-box-icon" aria-hidden="true">⚠️</span>
+            <div class="policy-box-text">
+              <strong>Please read before submitting.</strong> By using this contact form, you agree to our
+              <a href="terms-conditions.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>,
+              <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>, and
+              <a href="cookie-policy.html" target="_blank" rel="noopener">Cookie Policy</a>.
+              You must check the box below before your message can be sent.
+            </div>
+          </div>
+
+          <form id="contact-form" onsubmit="return handleFormSubmit('contact-form')" novalidate>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="ct-name">Full Name <span class="req">*</span></label>
+                <input class="form-input" type="text" id="ct-name" name="name" placeholder="Your name" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ct-email">Email Address <span class="req">*</span></label>
+                <input class="form-input" type="email" id="ct-email" name="email" placeholder="your@email.com" required autocomplete="email">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="ct-phone">Phone Number</label>
+                <input class="form-input" type="tel" id="ct-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ct-subject">Topic <span class="req">*</span></label>
+                <select class="form-select" id="ct-subject" name="subject" required>
+                  <option value="">Select a topic...</option>
+                  <option value="Product Question">Product question</option>
+                  <option value="Order Inquiry">I'd like to place an order</option>
+                  <option value="Custom Package Inquiry">Custom package inquiry</option>
+                  <option value="Order Status">Existing order question</option>
+                  <option value="General Inquiry">General inquiry</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Message <span class="req">*</span></label>
+              <textarea class="form-textarea" id="message" name="message" rows="6" required
+                placeholder="Tell us what's on your mind — product questions, order details, vehicle information, or anything else we can help with."></textarea>
+            </div>
+
+            <!-- Policy Agreement -->
+            <div style="background:rgba(200,151,59,.06);border:1px solid rgba(200,151,59,.2);border-radius:var(--radius-lg);padding:18px 20px;margin-bottom:18px">
+              <label class="form-check">
+                <input type="checkbox" name="agree_policies" required>
+                <span class="check-box" aria-hidden="true"></span>
+                <span class="check-text">
+                  I have read and agree to Reclaimed Group's
+                  <a href="terms-conditions.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>,
+                  <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>, and
+                  <a href="cookie-policy.html" target="_blank" rel="noopener">Cookie Policy</a>.
+                </span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              Send Message &rarr;
+            </button>
+            <p style="font-size:.73rem;color:var(--text-3);text-align:center;margin-top:10px">
+              Submitting opens your email client with your message pre-filled. We respond within 24 hours.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" role="contentinfo"></footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <style>
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</body>
+</html>
