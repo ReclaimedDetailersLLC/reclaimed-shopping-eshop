@@ -31,7 +31,7 @@ function renderNav() {
     <div class="container">
       <div class="nav-inner">
 
-        <a href="index.html" class="nav-logo" aria-label="Reclaimed Co. Home">
+        <a href="index.html" class="nav-logo" aria-label="Reclaimed Home">
           <div class="nav-logo-mark">RECLAIMED.</div>
           <div class="nav-logo-sub">Wear Your Story</div>
         </a>
@@ -121,7 +121,7 @@ function renderFooter() {
           <div class="footer-heading">Contact</div>
           <div class="footer-contact-row">
             <span class="footer-contact-icon">✉</span>
-            <span class="footer-contact-text">hello@reclaimedco.com</span>
+            <span class="footer-contact-text">reclaimedgroup@gmail.com</span>
           </div>
           <div class="footer-contact-row">
             <span class="footer-contact-icon">🕐</span>
@@ -138,7 +138,7 @@ function renderFooter() {
 
       <div class="footer-bottom">
         <div class="footer-copy">
-          &copy; ${new Date().getFullYear()} Reclaimed Co. All rights reserved. Handmade with purpose.
+          &copy; ${new Date().getFullYear()} Reclaimed. All rights reserved. Handmade with purpose.
         </div>
         <div class="footer-legal">
           <a href="privacy-policy.html">Privacy</a>
