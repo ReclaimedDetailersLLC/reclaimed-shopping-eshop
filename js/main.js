@@ -237,11 +237,11 @@ function handleFormSubmit(formId) {
   const name    = data.get('name')    || '';
   const email   = data.get('email')   || '';
   const phone   = data.get('phone')   || '';
-  const subject = data.get('subject') || 'Inquiry — Reclaimed Co.';
+  const subject = data.get('subject') || 'Inquiry — Reclaimed Shopping';
   const message = data.get('message') || '';
 
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`);
-  window.location.href = `mailto:hello@reclaimedco.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  window.location.href = `mailto:reclaimedgroup@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
 
   showToast('Opening your email client...');
   return false;

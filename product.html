@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Product details — Reclaimed Co.">
-  <title>Product | Reclaimed Co.</title>
+  <meta name="description" content="Product details — Reclaimed">
+  <title>Product | Reclaimed</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -112,7 +112,7 @@
         return;
       }
 
-      document.title = `${product.name} — ${product.variant} | Reclaimed Co.`;
+      document.title = `${product.name} — ${product.variant} | Reclaimed`;
       document.querySelector('meta[name="description"]').content = product.desc.slice(0, 160);
       document.getElementById('bc-name').textContent = `${product.name} — ${product.variant}`;
 
