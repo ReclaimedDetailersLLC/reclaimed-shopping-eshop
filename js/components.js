@@ -1,5 +1,5 @@
 /* ============================================================
-   RECLAIMED CO. — Shared Components
+   AIONEO CO. — Shared Components
    ============================================================ */
 
 function _activePage() {
@@ -31,9 +31,9 @@ function renderNav() {
     <div class="container">
       <div class="nav-inner">
 
-        <a href="index.html" class="nav-logo" aria-label="Reclaimed Home">
-          <div class="nav-logo-mark">RECLAIMED.</div>
-          <div class="nav-logo-sub">Wear Your Story</div>
+        <a href="index.html" class="nav-logo" aria-label="Aioneo Co. Home">
+          <div class="nav-logo-mark">AIONEO CO.</div>
+          <div class="nav-logo-sub">Premium Apparel</div>
         </a>
 
         <nav class="nav-links" aria-label="Main navigation">
@@ -80,8 +80,8 @@ function renderFooter() {
       <div class="footer-grid">
 
         <div>
-          <div class="footer-logo">RECLAIMED.</div>
-          <div class="footer-tagline">Wear Your Story</div>
+          <div class="footer-logo">AIONEO CO.</div>
+          <div class="footer-tagline">Premium Apparel</div>
           <p class="footer-desc">
             Faith-inspired apparel and handmade goods for those who know what they've been brought through —
             and aren't afraid to wear it.
@@ -121,7 +121,7 @@ function renderFooter() {
           <div class="footer-heading">Contact</div>
           <div class="footer-contact-row">
             <span class="footer-contact-icon">✉</span>
-            <span class="footer-contact-text">reclaimedgroup@gmail.com</span>
+            <span class="footer-contact-text">aioneogroup@gmail.com</span>
           </div>
           <div class="footer-contact-row">
             <span class="footer-contact-icon">🕐</span>
@@ -138,7 +138,7 @@ function renderFooter() {
 
       <div class="footer-bottom">
         <div class="footer-copy">
-          &copy; ${new Date().getFullYear()} Reclaimed. All rights reserved. Handmade with purpose.
+          &copy; ${new Date().getFullYear()} Aioneo Co. All rights reserved. Handmade with purpose.
         </div>
         <div class="footer-legal">
           <a href="privacy-policy.html">Privacy</a>
