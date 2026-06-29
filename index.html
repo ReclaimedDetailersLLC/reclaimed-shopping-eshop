@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Reclaimed — Faith-inspired heavyweight apparel and handmade goods. Wear Your Story.">
-  <title>Reclaimed | Wear Your Story</title>
+  <meta name="description" content="Aioneo Co. — Faith-inspired heavyweight apparel and handmade goods. Wear Your Story.">
+  <title>Aioneo Co. | Wear Your Story</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
   <header id="nav" role="banner"></header>
 
-  <!-- ═══ HERO ═══════════════════════════════════════════════ -->
-  <section class="hero" aria-label="Reclaimed — Wear Your Story">
+  <!-- HERO -->
+  <section class="hero" aria-label="Aioneo Co. — Wear Your Story">
     <div class="hero-texture" aria-hidden="true"></div>
 
     <div class="container" style="width:100%;position:relative;z-index:2">
@@ -36,13 +36,13 @@
     </div>
 
     <div class="hero-accent" aria-hidden="true">
-      <div class="hero-accent-text">RECLAIMED.</div>
+      <div class="hero-accent-text">AIONEO CO.</div>
     </div>
 
     <div class="hero-scroll" aria-hidden="true">Scroll</div>
   </section>
 
-  <!-- ═══ COLLECTIONS ═════════════════════════════════════════ -->
+  <!-- COLLECTIONS -->
   <section class="section">
     <div class="container">
       <div class="section-header">
@@ -81,7 +81,7 @@
     </div>
   </section>
 
-  <!-- ═══ MISSION STATEMENT ════════════════════════════════════ -->
+  <!-- MISSION STATEMENT -->
   <div class="mission-block">
     <div class="container">
       <div class="eyebrow" style="color:rgba(196,164,106,.8)">Our Foundation</div>
@@ -93,7 +93,7 @@
     </div>
   </div>
 
-  <!-- ═══ FEATURED PRODUCTS ════════════════════════════════════ -->
+  <!-- FEATURED PRODUCTS -->
   <section class="section">
     <div class="container">
       <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:36px">
@@ -107,7 +107,7 @@
     </div>
   </section>
 
-  <!-- ═══ WHY RECLAIMED ════════════════════════════════════════ -->
+  <!-- WHY AIONEO CO. -->
   <section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
     <div class="container">
       <div class="section-header text-center">
@@ -133,7 +133,7 @@
         </div>
         <div class="feature-item">
           <div class="feature-num">03</div>
-          <div class="feature-title">Small & Personal</div>
+          <div class="feature-title">Small &amp; Personal</div>
           <p class="feature-desc">
             We're not a warehouse. We're a small operation and we care about
             every piece that goes out. Reach out anytime — real person, real response.
@@ -143,7 +143,7 @@
     </div>
   </section>
 
-  <!-- ═══ CTA — CUSTOM MADE ════════════════════════════════════ -->
+  <!-- CTA — CUSTOM MADE -->
   <section class="cta-banner">
     <div class="container">
       <div class="eyebrow">Tailored for You</div>
@@ -156,7 +156,7 @@
     </div>
   </section>
 
-  <!-- ═══ TESTIMONIALS ════════════════════════════════════════ -->
+  <!-- TESTIMONIALS -->
   <section class="section">
     <div class="container">
       <div class="section-header text-center">
@@ -165,7 +165,7 @@
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="testimonial-text">
             "I've been looking for a brand that actually means something. The hoodie quality is insane —
             way heavier than I expected. And the back design? I get asked about it every single time I wear it."
@@ -179,7 +179,7 @@
           </div>
         </div>
         <div class="testimonial-card">
-          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="testimonial-text">
             "Bought the cross necklace and the Sand hoodie together as a birthday gift for my husband.
             He hasn't taken either off. The packaging was beautiful and the quality spoke for itself."
@@ -193,7 +193,7 @@
           </div>
         </div>
         <div class="testimonial-card">
-          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="testimonial-text">
             "This is the kind of brand I've always wanted to exist. Clean. Minimal. Faith-filled.
             The cream tee fits exactly like it should — oversized but structured. 10/10, already reordering."
@@ -220,7 +220,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       const grid = document.getElementById('featured-grid');
       if (grid) {
-        // Show first 6 products on home page
         grid.innerHTML = PRODUCTS.slice(0, 6).map(p => productCard(p)).join('');
       }
     });
