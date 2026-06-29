@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Product details — Reclaimed">
-  <title>Product | Reclaimed</title>
+  <meta name="description" content="Product details — Aioneo Co.">
+  <title>Product | Aioneo Co.</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -16,9 +16,9 @@
 
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="index.html">Home</a>
-        <span class="bc-sep" aria-hidden="true">›</span>
+        <span class="bc-sep" aria-hidden="true">&rsaquo;</span>
         <a href="shop.html">Shop</a>
-        <span class="bc-sep" aria-hidden="true">›</span>
+        <span class="bc-sep" aria-hidden="true">&rsaquo;</span>
         <span id="bc-name" aria-current="page">Product</span>
       </nav>
 
@@ -37,7 +37,6 @@
           <div class="product-detail-variant" id="detail-variant"></div>
           <div class="product-detail-price"   id="detail-price"></div>
 
-          <!-- Color options if multiple -->
           <div id="detail-swatches" style="margin-bottom:18px"></div>
 
           <p style="font-size:.9rem;color:var(--text-2);line-height:1.8;margin-bottom:20px" id="detail-desc"></p>
@@ -47,16 +46,14 @@
           <p style="font-family:var(--font-m);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px">Details</p>
           <ul class="feature-list" id="detail-features"></ul>
 
-          <!-- Material / Fit info -->
           <div id="detail-specs" style="margin:18px 0;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg)"></div>
 
           <div class="divider" style="margin:18px 0"></div>
 
-          <!-- Quantity -->
           <div style="margin-bottom:16px">
             <label for="detail-qty" style="font-family:var(--font-m);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:8px">Quantity</label>
             <div class="qty-control" style="width:fit-content">
-              <button class="qty-ctrl-btn" id="qty-down" aria-label="Decrease quantity">−</button>
+              <button class="qty-ctrl-btn" id="qty-down" aria-label="Decrease quantity">&minus;</button>
               <input class="qty-ctrl-input" type="number" id="detail-qty" value="1" min="1" max="20" aria-label="Quantity">
               <button class="qty-ctrl-btn" id="qty-up"   aria-label="Increase quantity">+</button>
             </div>
@@ -69,9 +66,8 @@
             <a href="contact.html" class="btn btn-outline">Ask a Question</a>
           </div>
 
-          <!-- No payment notice -->
           <div style="margin-top:16px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);display:flex;gap:10px;align-items:flex-start">
-            <span style="color:var(--brown);font-size:.9rem;flex-shrink:0">ℹ</span>
+            <span style="color:var(--brown);font-size:.9rem;flex-shrink:0">&#8505;</span>
             <p style="font-size:.76rem;color:var(--text-3);line-height:1.6">
               We're not processing payments online yet — for your protection. Add items to your cart, then click
               <em>Inquire to Order</em> and we'll confirm everything and handle payment securely together.
@@ -112,36 +108,31 @@
         return;
       }
 
-      document.title = `${product.name} — ${product.variant} | Reclaimed`;
+      document.title = `${product.name} — ${product.variant} | Aioneo Co.`;
       document.querySelector('meta[name="description"]').content = product.desc.slice(0, 160);
       document.getElementById('bc-name').textContent = `${product.name} — ${product.variant}`;
 
-      // Main image
       document.getElementById('detail-main-img').innerHTML = `
         <div style="width:100%;height:100%;background:${product.bgColor};display:flex;align-items:center;justify-content:center;min-height:400px" aria-hidden="true">
-          <span style="font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;color:${product.textColor};letter-spacing:-.01em;text-align:center;padding:40px;line-height:1.1">RECLAIMED.</span>
+          <span style="font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;color:${product.textColor};letter-spacing:-.01em;text-align:center;padding:40px;line-height:1.1">AIONEO CO.</span>
         </div>
       `;
 
-      // Thumbs (angle variations)
       const thumbAngles = ['160deg', '45deg', '280deg', '90deg'];
-      const thumbBgs = thumbAngles.map(a => product.bgColor);
-      document.getElementById('detail-thumbs').innerHTML = thumbBgs.map((bg, i) => `
+      document.getElementById('detail-thumbs').innerHTML = thumbAngles.map((bg, i) => `
         <div class="detail-thumb ${i === 0 ? 'active' : ''}" aria-label="View ${i + 1}">
-          <div style="width:100%;height:100%;background:${bg};opacity:${1 - i * 0.15};display:flex;align-items:center;justify-content:center">
-            <span style="font-family:'Playfair Display',serif;font-size:.55rem;font-weight:700;color:${product.textColor};letter-spacing:.02em">RCL.</span>
+          <div style="width:100%;height:100%;background:${product.bgColor};opacity:${1 - i * 0.15};display:flex;align-items:center;justify-content:center">
+            <span style="font-family:'Playfair Display',serif;font-size:.55rem;font-weight:700;color:${product.textColor};letter-spacing:.02em">AON.</span>
           </div>
         </div>
       `).join('');
 
-      // Info
       document.getElementById('detail-col').textContent     = product.collection;
       document.getElementById('detail-name').textContent    = product.name;
       document.getElementById('detail-variant').textContent = product.variant;
       document.getElementById('detail-price').textContent   = '$' + product.price.toFixed(2);
       document.getElementById('detail-desc').textContent    = product.desc;
 
-      // Swatches (link to other variants)
       if (product.swatches && product.swatches.length > 1) {
         const sameBase = PRODUCTS.filter(p => p.name === product.name);
         document.getElementById('detail-swatches').innerHTML = `
@@ -162,15 +153,13 @@
         `;
       }
 
-      // Features
       document.getElementById('detail-features').innerHTML = product.features.map(f => `
         <li>
-          <span class="check-icon" aria-hidden="true">✓</span>
+          <span class="check-icon" aria-hidden="true">&#10003;</span>
           <span>${f}</span>
         </li>
       `).join('');
 
-      // Specs
       const specs = [];
       if (product.fit)       specs.push(`<strong>Fit:</strong> ${product.fit}`);
       if (product.material)  specs.push(`<strong>Material:</strong> ${product.material}`);
@@ -181,7 +170,6 @@
         </div>
       `;
 
-      // Qty
       const qtyInput = document.getElementById('detail-qty');
       document.getElementById('qty-down').addEventListener('click', () => {
         qtyInput.value = Math.max(1, parseInt(qtyInput.value) - 1);
@@ -197,7 +185,6 @@
         showToast(`${product.name} — ${product.variant} (×${qty}) added ✓`);
       });
 
-      // Related: same collection or category
       const related = PRODUCTS
         .filter(p => p.id !== product.id && (p.collection === product.collection || p.category === product.category))
         .slice(0, 4);
